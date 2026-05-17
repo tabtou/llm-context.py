@@ -40,3 +40,7 @@ Thumbs.db
 .env
 
 .DS_Store
+
+# Local scratch
+.commit-msg
+field-notes.md

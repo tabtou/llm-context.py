@@ -45,6 +45,20 @@ lc-context tmp-prm-auth    # Get focused context for sub-agent
 uv tool install "llm-context>=0.6.0"
 ```
 
+### For Agents (Claude Code skill)
+
+If you're an agent setting llm-context up to help curate task contexts, run this once per project:
+
+```bash
+uv tool install "llm-context>=0.6.0"   # installs the lc-* commands globally
+cd <project-root>
+lc-init                                # creates .llm-context/, copies the lc-curate-context skill to .claude/skills/
+```
+
+After `lc-init`, the `lc-curate-context` skill loads in this project's Claude Code session. It teaches how to compose a minimal task rule and verify it with `lc-preview` before generating context.
+
+To pick up a newer skill version, run `uv tool upgrade llm-context` and re-run `lc-init` — it refreshes the skill files in place.
+
 ## Quick Start
 
 ### Human Workflow (Clipboard)

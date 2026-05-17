@@ -165,11 +165,35 @@ Preview and generated context show namespaced paths like `/{project-name}/src/..
 - `prm-<name>.md`: reusable prompt rule
 - `flt-<name>.md`: reusable filter primitive
 
-## Skill Feedback
+## Feedback
 
-When you notice this skill could be clearer, is missing a pattern, or led you down the wrong path, offer to record the insight.
+This skill is young — actively log friction whenever something is awkward, surprising, ambiguous, missing, or led you down the wrong path. Don't filter; patterns only emerge from honest individual observations.
 
-Write it to `SKILL-FEEDBACK.md` at the root of the local llm-context.py repo (ask the user for the path if unsure). One short paragraph per entry: what happened, what the better approach is, and why.
+**Where to log** (try in order):
+
+1. **If the user has a local `llm-context.py` checkout** (sibling repo, editable install, or anywhere else on disk) — append to `<llm-context.py-repo>/field-notes.md`. That's the lowest-friction path to the maintainer, since the entry lands directly in the upstream working tree.
+   - Probe common locations before asking: `../llm-context.py`, `~/GitHub/llm-context.py`, `~/src/llm-context.py`. If the user has mentioned the checkout elsewhere in the conversation, use that path.
+   - If `field-notes.md` doesn't exist yet, create it with the header below.
+2. **Otherwise** — append to `.llm-context/SKILL-FEEDBACK.md` in the current project (created on first entry, git-ignored by default). The user can copy entries upstream later.
+3. **For items that clearly generalize beyond this project** — also paste the entry as an issue at https://github.com/cyberchitta/llm-context.py/issues so the maintainer can triage it.
+
+**Entry format** (newest at the top):
+
+- **Date** — `YYYY-MM-DD`, absolute (resolve "today"/"Tuesday" before writing).
+- **Task** — one line describing what the user was trying to accomplish.
+- **Observation** — 1–3 sentences: what surfaced, what worked around it (if anything), and whether it reads as a one-off or hints at a pattern.
+- **Suggested home** — one of `Skill.md` / `PATTERNS.md` / `SYNTAX.md` / `EXAMPLES.md` / `TROUBLESHOOTING.md` / upstream code / `still-unsure`. `still-unsure` is a valid answer.
+
+**First-time header** to drop at the top of a new feedback file (either `<llm-context.py-repo>/field-notes.md` or `.llm-context/SKILL-FEEDBACK.md`):
+
+```markdown
+# llm-context skill feedback (uncommitted)
+
+Informal log of friction with the `lc-curate-context` skill — anything
+awkward, buggy, missing, or surprising. Newest at the top.
+```
+
+Log first; decide later whether the observation generalizes.
 
 ## References
 
